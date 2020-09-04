@@ -22,17 +22,16 @@ var Charspecial = ["@", "!", "#", "$", "%", "&", "?"];
 
 // Implementing the writePassword function which will be called onclick 
 function writePassword() {
-  var passwordLength = prompt("How long would you like your password to be? Please enter a number between 8 and 128 (inclusive) only.", "Enter a number here between 8 and 128 (inclusive).");
-  // I'm aware the length is a string and is implicitly cast into a number
+  var passwordLength = parseInt(prompt("How long would you like your password to be? Please enter a number between 8 and 128 (inclusive) only.", "Enter a number here between 8 and 128 (inclusive)."));
   if (passwordLength >= 8 && passwordLength <= 128) {
-    var charArray = []
+    var charArray = [];
 
     alert("The following questions will ask you to specify requirements for characters to include within your password. Please click on 'confirm' to answer with 'yes' and 'cancel' to answer with 'no'. You must select at least one character-type.");
 
     var lowercase = confirm("Should your password contain lowercase letters?");
-    var specialChar = confirm("Should your password contain special characters?");
     var uppercase = confirm("Should your password contain uppercase letters?");
     var numeric = confirm("Should your password contain numeric values?");
+    var specialChar = confirm("Should your password contain special characters?");
 
     if (!lowercase && !uppercase && !numeric && !specialChar) {
       alert("You must select at least one character requirement. Please Try Again.");
